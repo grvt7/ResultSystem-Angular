@@ -1,0 +1,30 @@
+<div class="row mt-2 d-md-flex" style="float: right; margin-right: 15px;">
+    <button (click)="getToAdd()" class="btn btn-primary">Add Record</button>
+    <button (click)="logout()" class="btn btn-danger">Logout</button>
+</div>
+<div class="row mt-5" style="margin-left : 10%">
+    <h2>Total Students : {{results?.length}}</h2>
+</div>
+<div class="row mt-5" style="margin-left: 11%;">
+    <table class="table table-bordered" style="border: solid;width: 90%; text-align: center;">
+        <tr style="border: solid;">
+            <th>Roll Number</th>
+            <th>Name </th>
+            <th>DOB</th>
+            <th>Score</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let data of results">
+            <td>{{data.rollNumber}}</td>
+            <td>{{data.studentName}}</td>
+            <td>{{data.dateOfBirth}}</td>
+            <td>{{data.score}}</td>
+            <td>
+                <div>
+                    <button #btnEdit (click)="getEditResult(btnEdit.value)" value="{{data.rollNumber}}" class="btn btn-primary">Edit</button>
+                    <button #btnDelete (click)="deleteElement(btnDelete.value)" value="{{data.rollNumber}}" class="btn btn-secondary">Delete</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
